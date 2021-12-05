@@ -1,12 +1,30 @@
-"use strict"
+'use strict'
 
-const line = document.getElementById("line");
-const lineClick = document.getElementById("click");
+const line = document.getElementById('line')
+const startButton = document.getElementById('start')
+const stopButton = document.getElementById('stop')
+const clearButton = document.getElementById('clear')
 
-const rotate = (second) => {
-    line.style.transform = `rotate(${second}deg)`;
-    setTimeout(rotate, 1000, second += 6)
+let interval
+let run = 0
+
+const rotate = () => {
+    run += 6
+    line.style.transform = `rotate(${run}deg)`
 }
 
-setTimeout(rotate, 1000, 0)
-lineClick.addEventListener("click", rotate);
+startButton.addEventListener('click', () => {
+    clearInterval(interval)
+    interval = setInterval(rotate, 1000)
+})
+
+stopButton.addEventListener('click', () => {
+    clearInterval(interval)
+})
+
+clearButton.addEventListener('click', () => {
+    clearInterval(interval)
+    run = 0
+    line.style.transform = 'rotate(0deg)'
+})
+
