@@ -35,7 +35,7 @@ const rotate = () => {
     if (second > 9) {
         secElement.innerText = second
     }
-    if (second > 60) {
+    if (second > 59) {
         minute++
         minElement.innerText = '0' + minute
         second = 0
