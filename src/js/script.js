@@ -50,7 +50,7 @@ const rotate = () => {
     }
 
     if (milsecond != 0 || second != 0 || min != 0) {
-        run += 0.03
+        run += 0.06
         line.style.transform = `rotate(${run}deg)`
     }
 }
